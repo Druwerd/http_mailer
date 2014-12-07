@@ -10,7 +10,7 @@ describe HttpMailer::MailgunServiceHandler do
     let(:subject){ "Hello" }
     let(:email_body){ "Congratulations, you just sent an email with Mailgun!  You are truly awesome!" }
 
-    it 'sengs an email message' do
+    it 'sends an email message' do
       response = mailer.send_message(sender, reciever, subject, email_body)
       expect(response.code).to eq(200)
     end
