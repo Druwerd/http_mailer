@@ -10,7 +10,7 @@ module HttpMailer
       @version = version
     end
 
-    def messages_url
+    def send_messages_url
       "#{self.protocol}://api:key-#{self.api_key}@#{self.host}/#{self.version}/#{self.subdomain}/messages"
     end
   end

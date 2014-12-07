@@ -7,7 +7,7 @@ module HttpMailer
       @protocol = protocol
     end
 
-    def messages_url
+    def send_messages_url
       "#{self.protocol}://#{self.host}/api/mail.send.json"
     end
   end

@@ -18,5 +18,11 @@ RSpec.configure do |config|
           :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Content-Length'=>'208', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Ruby'}).
       to_return(:status => 200, :body => "", :headers => {})
 
+    # Stub Mandrill HTTP requests
+    stub_request(:post, "https://mandrillapp.com/api/1.0/messages/send.json").
+       with(:body => "{\"key\":\"1234567890\",\"message\":{\"html\":null,\"text\":\"Congratulations, you just sent an email with Mandrill!  You are truly awesome!\",\"subject\":\"Hello\",\"from_email\":\"papa@prose.com\",\"from_name\":\"Ernest Hemingway\",\"to\":[{\"email\":\"to@test.com\",\"name\":\"Test Reciever\"},{\"email\":\"jd@catcher.com\",\"name\":\"JD Salinger\"}],\"headers\":{},\"important\":null,\"track_opens\":null,\"track_clicks\":null,\"auto_text\":null,\"auto_html\":null,\"inline_css\":null,\"url_strip_qs\":null,\"preserve_recipients\":null,\"view_content_link\":null,\"bcc_address\":null,\"tracking_domain\":null,\"signing_domain\":null,\"return_path_domain\":null,\"merge\":null,\"merge_language\":null,\"global_merge_vars\":[],\"merge_vars\":[],\"tags\":[],\"subaccount\":null,\"google_analytics_domains\":[],\"google_analytics_campaign\":null,\"metadata\":[],\"recipient_metadata\":[],\"attachments\":[],\"images\":[]}}",
+            :headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Length'=>'828', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}).
+       to_return(:status => 200, :body => "", :headers => {})
+
   end
 end
