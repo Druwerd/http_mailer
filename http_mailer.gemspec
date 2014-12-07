@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dru Ibarra"]
   spec.email         = ["Druwerd@gmail.com"]
   spec.summary       = %q{Sends email via HTTP APIs}
-  spec.description   = %q{Sends email via HTTP APIs}
+  spec.description   = %q{Send emails via Mailgun, Mandrill and SendGrid HTTP APIs.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
