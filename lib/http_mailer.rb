@@ -21,7 +21,7 @@ module HttpMailer
       SendGridServiceHandler.new(settings)
     end
 
-    def mandrill
+    def mandrill(settings)
       MandrillServiceHandler.new(settings)
     end
   end
