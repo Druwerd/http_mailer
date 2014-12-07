@@ -50,9 +50,30 @@ from_name = "Ernest Hemingway"
 to = "jd@catcher.com"
 to_name = "JD Salinger"
 subject = "Hello"
-text = "Every man's life ends the same way. It is only the details of how he lived and how he died that distinguish one man from another."
+text = "Every man's life ends the same way. \
+It is only the details of how he lived and \
+how he died that distinguish one man from another."
 
 mandrill_client.send_message(from, to, subject, text, to_name, from_name)
+```
+
+SendGrid
+
+```ruby
+sendgrid_client = HttpMailer.sendgrid({
+  host: "sendgrid.com",
+  api_user: "username",
+  api_key: "XXXXXXXXX"
+})
+
+from = "jcash@tennesseethree.com"
+from_name = "Johnny Cash"
+to = "elvis@graceland.com"
+to_name = "Elvis Presley"
+subject = "Hello"
+text = "Success is having to worry about every damn thing in the world, except money."
+
+sendgrid_client.send_message(from, to, subject, text, to_name, from_name)
 ```
 
 ## Contributing
