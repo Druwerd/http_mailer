@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+Mailgun
+
 ```ruby
 mailgun_client = HttpMailer.mailgun({
   host: "api.mailgun.net",
@@ -33,6 +35,24 @@ subject = "Hello"
 text = "Testing some Mailgun awesomness!"
 
 mailgun_client.send_message(from, to, subject, text)
+```
+
+Mandrill
+
+```ruby
+mandrill_client = HttpMailer.mandrill({
+  host: "mandrillapp.com",
+  api_key: "XXXXXXXXX"
+})
+
+from = "papa@prose.com"
+from_name = "Ernest Hemingway"
+to = "jd@catcher.com"
+to_name = "JD Salinger"
+subject = "Hello"
+text = "Every man's life ends the same way. It is only the details of how he lived and how he died that distinguish one man from another."
+
+mandrill_client.send_message(from, to, subject, text, to_name, from_name)
 ```
 
 ## Contributing
