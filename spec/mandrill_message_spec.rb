@@ -3,10 +3,10 @@ require 'spec_helper'
 describe HttpMailer::MandrillMessage do
   
   describe "#initialize" do
-    let(:from){ "from@test.com"}
-    let(:from_name){ "Test Sender"}
-    let(:to){ "to@test.com" }
-    let(:to_name){ "Test Reciever"}
+    let(:from){ "jcash@tennesseethree.com"}
+    let(:from_name){ "Johnny Cash"}
+    let(:to){ "elvis@graceland.com" }
+    let(:to_name){ "Elvis Presley"}
     let(:subject){ "Hello" }
     let(:text_body){ "Congratulations, you just sent an email with Mandrill!  You are truly awesome!" }
     let(:html_body){ "<h1>Congratulations, you just sent an email with Mandrill!  You are truly awesome!</h1>"}
