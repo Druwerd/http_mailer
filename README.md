@@ -1,6 +1,6 @@
 # HttpMailer
 
-TODO: Write a gem description
+Send emails via Mailgun, Mandrill and SendGrid HTTP APIs.
 
 ## Installation
 
@@ -20,7 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+mailgun_client = HttpMailer.mailgun({
+  host: "api.mailgun.net",
+  api_key: "XXXXXXXXX",
+  subdomain: "samples.mailgun.net"
+})
+
+from = "Excited User <me@samples.mailgun.org>"
+to = "baz@example.com"
+subject = "Hello"
+text = "Testing some Mailgun awesomness!"
+
+mailgun_client.send_message(from, to, subject, text)
+```
 
 ## Contributing
 
