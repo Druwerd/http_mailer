@@ -12,7 +12,7 @@ module HttpMailer
       @mandrill = MandrillServiceHandler.new(settings[:mandrill])
     end
 
-    def send_message(from, to, subject, body, from_name, to_name)
+    def send_message(from, to, subject, body, from_name='', to_name='')
       response = nil
 
       [mailgun, sendgrid, mandrill].each do |service|
