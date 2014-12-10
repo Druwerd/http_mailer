@@ -10,6 +10,12 @@ module HttpMailer
       )
     end
 
+    def configured?
+      !self.service_configuration.settings.host.nil? &&
+      !self.service_configuration.settings.api_key.nil? &&
+      !self.service_configuration.settings.subdomain.nil?
+    end
+
     def send_message(from, to, subject, text)
       ::RestClient.post self.service_api.send_messages_url,
         :from => from,
