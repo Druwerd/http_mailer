@@ -15,4 +15,5 @@ describe HttpMailer::SendGridServiceHandler do
       expect(response.code).to eq(200)
     end
   end
+  
 end

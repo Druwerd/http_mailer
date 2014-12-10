@@ -7,13 +7,8 @@ module HttpMailer
       @service_api = ::HttpMailer::MandrillServiceApi.new(self.service_configuration.settings.host)
     end
 
-    def configured?
-      !self.service_configuration.settings.host.nil? &&
-      !self.service_configuration.settings.api_key.nil?
-    end
-
-    def send_message(from, to, subject, text, to_name='', from_name='')
-      message = MandrillMessage.new(from, to, subject, text, nil, to_name, from_name)
+    def send_message(from, to, subject, text, from_name='', to_name='')
+      message = MandrillMessage.new(from, to, subject, text, nil, from_name, to_name)
       payload = {
         :key => self.service_configuration.settings.api_key,
         :message => message.to_h

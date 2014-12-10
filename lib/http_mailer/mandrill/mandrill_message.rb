@@ -3,7 +3,7 @@ module HttpMailer
     attr_accessor :to, :to_name, :from, :from_name, :subject, :text, :html
     attr_reader :structure
 
-    def initialize(to, from, subject, text=nil, html=nil, to_name=nil, from_name=nil)
+    def initialize(from, to, subject, text=nil, html=nil, from_name=nil, to_name=nil)
       @to = to
       @from = from
       @subject = subject

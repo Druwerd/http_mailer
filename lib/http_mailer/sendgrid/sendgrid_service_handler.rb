@@ -7,7 +7,7 @@ module HttpMailer
       @service_api = ::HttpMailer::SendGridServiceApi.new(self.service_configuration.settings.host)
     end
 
-    def send_message(from, to, subject, text, to_name='', from_name='')
+    def send_message(from, to, subject, text, from_name='', to_name='')
       ::RestClient.post self.service_api.send_messages_url,
         :api_user => self.service_configuration.settings.api_user,
         :api_key => self.service_configuration.settings.api_key,

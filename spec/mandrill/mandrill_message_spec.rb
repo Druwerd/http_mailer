@@ -10,7 +10,7 @@ describe HttpMailer::MandrillMessage do
     let(:subject){ "Hello" }
     let(:text_body){ "Congratulations, you just sent an email with Mandrill!  You are truly awesome!" }
     let(:html_body){ "<h1>Congratulations, you just sent an email with Mandrill!  You are truly awesome!</h1>"}
-    let(:message){ HttpMailer::MandrillMessage.new(to, from, subject, text_body, html_body, to_name, from_name) }
+    let(:message){ HttpMailer::MandrillMessage.new(from, to, subject, text_body, html_body, from_name, to_name) }
 
     it 'builds a propery formated Mandrill message' do
       expect(message.to_h[:to]).to eq [{:email => to, :name => to_name}]
