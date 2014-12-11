@@ -42,7 +42,7 @@ settings = {
   }
 }
 
-http_mailer_client = HttpMailer::Client.new(settings)
+http_mailer_client = HttpMailer.client(settings)
 
 from = "papa@prose.com"
 from_name = "Ernest Hemingway"
