@@ -1,7 +1,7 @@
 # HttpMailer
 
 Sends emails via SendGrid, Mailgun, or Mandrill HTTP APIs.
-HttpMailer attempts to send an email once with each service \
+HttpMailer attempts to send an email once with each service 
 until an attempt is completed successfully.
 
 ## Installation
