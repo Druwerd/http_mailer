@@ -22,8 +22,6 @@ Or install it yourself as:
 
 ## Usage
 
-Mailgun
-
 ```ruby
 settings = {
   sendgrid: {
