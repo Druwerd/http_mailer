@@ -15,7 +15,7 @@ module HttpMailer
     def send_message(from, to, subject, body, from_name='', to_name='')
       response = nil
 
-      [mailgun, sendgrid, mandrill].each do |service|
+      [sendgrid, mailgun, mandrill].each do |service|
         if service.configured?
           response = service.send_message(from, to, subject, body, to_name, from_name)
           break if response.code == 200
