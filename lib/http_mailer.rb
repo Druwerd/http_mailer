@@ -12,6 +12,7 @@ require "http_mailer/sendgrid/sendgrid_service_api"
 require "http_mailer/sendgrid/sendgrid_service_handler"
 
 module HttpMailer
+  class EmailDeliveryError < StandardError; end
   
   class << self
     def client(settings)

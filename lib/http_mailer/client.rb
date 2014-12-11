@@ -22,6 +22,7 @@ module HttpMailer
         end
       end
 
+      raise EmailDeliveryError if response.code != 200
       return response
     end
 
