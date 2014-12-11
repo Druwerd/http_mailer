@@ -3,7 +3,7 @@ require 'spec_helper'
 describe HttpMailer::MailgunServiceHandler do
   
   describe "#send_message" do
-    let(:settings){ {:host => "api.mailgun.net", :api_key => "12345", :subdomain => "sandbox12345.mailgun.org"} }
+    let(:settings){ {:host => "api.mailgun.net", :api_key => "key-12345", :subdomain => "sandbox12345.mailgun.org"} }
     let(:mailer){ HttpMailer::MailgunServiceHandler.new(settings) }
     let(:sender){ "Mailgun Sandbox <postmaster@sandbox12345.mailgun.org>"}
     let(:reciever){ "Test <test@gmail.com>" }
@@ -18,7 +18,7 @@ describe HttpMailer::MailgunServiceHandler do
 
   describe "#configured?" do
     context "fully configured" do
-      let(:settings){ {:host => "api.mailgun.net", :api_key => "12345", :subdomain => "sandbox12345.mailgun.org"} }
+      let(:settings){ {:host => "api.mailgun.net", :api_key => "key-12345", :subdomain => "sandbox12345.mailgun.org"} }
       let(:mailer){ HttpMailer::MailgunServiceHandler.new(settings) }
 
       it 'returns true' do
@@ -30,13 +30,13 @@ describe HttpMailer::MailgunServiceHandler do
       let(:no_settings){ {} }
       let(:mailer_with_no_settings){ HttpMailer::MailgunServiceHandler.new(no_settings) }
 
-      let(:settings_missing_host){ {:api_key => "12345", :subdomain => "sandbox12345.mailgun.org"} }
+      let(:settings_missing_host){ {:api_key => "key-12345", :subdomain => "sandbox12345.mailgun.org"} }
       let(:mailer_missing_host){ HttpMailer::MailgunServiceHandler.new(settings_missing_host) }
 
       let(:settings_missing_api_key){ {:host => "api.mailgun.net", :subdomain => "sandbox12345.mailgun.org"} }
       let(:mailer_missing_api_key){ HttpMailer::MailgunServiceHandler.new(settings_missing_api_key) }
 
-      let(:settings_missing_subdomain){ {:host => "api.mailgun.net", :api_key => "12345"} }
+      let(:settings_missing_subdomain){ {:host => "api.mailgun.net", :api_key => "key-12345"} }
       let(:mailer_missing_subdomain){ HttpMailer::MailgunServiceHandler.new(settings_missing_subdomain) }
 
       it 'returns false' do

@@ -12,16 +12,16 @@ RSpec.configure do |config|
           :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Content-Length'=>'224', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Ruby'}).
       to_return(:status => 200, :body => "", :headers => {})
 
-    stub_request(:post, "https://api:key-12345@api.mailgun.net/v2/sandbox12345.mailgun.org/messages").
-         with(:body => {"from"=>"sender@test.com", "subject"=>"Hello", "text"=>"Congratulations, you just sent an email with HttpMailer!  You are truly awesome!", "to"=>"reciever@test.com>"},
-              :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Content-Length'=>'174', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Ruby'}).
-         to_return(:status => 200, :body => "", :headers => {})
-
     # Stub SendGrid HTTP requests
     stub_request(:post, "https://sendgrid.com/api/mail.send.json").
       with(:body => {"api_key"=>/.*/, "api_user"=>/.*/, "from"=>/.*/, "fromname"=>/.*/, "subject"=>/.*/, "text"=>/.*/, "to"=>/.*/, "toname"=>/.*/},
           :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Content-Length'=>'208', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Ruby'}).
       to_return(:status => 200, :body => "", :headers => {})
+
+    stub_request(:post, "https://sendgrid.com/api/mail.send.json").
+         with(:body => {"api_key"=>"1234", "api_user"=>"test", "from"=>"sender@test.com", "fromname"=>"", "subject"=>"Hello", "text"=>"Congratulations, you just sent an email with HttpMailer!  You are truly awesome!", "to"=>"reciever@test.com>", "toname"=>""},
+              :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Content-Length'=>'219', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Ruby'}).
+         to_return(:status => 200, :body => "", :headers => {})
 
     # Stub Mandrill HTTP requests
     stub_request(:post, "https://mandrillapp.com/api/1.0/messages/send.json").

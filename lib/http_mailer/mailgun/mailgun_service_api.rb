@@ -11,7 +11,7 @@ module HttpMailer
     end
 
     def send_messages_url
-      "#{self.protocol}://api:key-#{self.api_key}@#{self.host}/#{self.version}/#{self.subdomain}/messages"
+      "#{self.protocol}://api:#{self.api_key}@#{self.host}/#{self.version}/#{self.subdomain}/messages"
     end
   end
 end

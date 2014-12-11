@@ -4,7 +4,7 @@ describe HttpMailer::MailgunServiceApi do
   
   describe "#send_messages_url" do
     let(:host){ "api.mailgun.net" }
-    let(:api_key){ "1234567890" }
+    let(:api_key){ "key-1234567890" }
     let(:subdomain){ "sandbox1234567890.mailgun.org" }
     let(:protocol){ "https" }
     let(:version){ "v2" }

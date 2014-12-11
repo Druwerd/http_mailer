@@ -3,7 +3,7 @@ require 'spec_helper'
 describe HttpMailer::Client do
 
   context "when configured" do
-    let(:settings){ {:mailgun => {:host => "api.mailgun.net", :api_key => "12345", :subdomain => "sandbox12345.mailgun.org"},
+    let(:settings){ {:mailgun => {:host => "api.mailgun.net", :api_key => "key-12345", :subdomain => "sandbox12345.mailgun.org"},
                     :sendgrid => {:host => "sendgrid.com", :api_user=> "test", :api_key => "1234"},
                     :mandrill => {:host => "mandrillapp.com", :api_key => "1234567890"}} }
 
@@ -14,7 +14,7 @@ describe HttpMailer::Client do
     end
 
     describe '#send_message' do
-      let(:settings){ {:mailgun => {:host => "api.mailgun.net", :api_key => "12345", :subdomain => "sandbox12345.mailgun.org"},
+      let(:settings){ {:mailgun => {:host => "api.mailgun.net", :api_key => "key-12345", :subdomain => "sandbox12345.mailgun.org"},
                     :sendgrid => {:host => "sendgrid.com", :api_user=> "test", :api_key => "1234"},
                     :mandrill => {:host => "mandrillapp.com", :api_key => "1234567890"}} }
       let(:mailer_client){ HttpMailer::Client.new(settings) }
