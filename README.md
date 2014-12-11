@@ -1,6 +1,8 @@
 # HttpMailer
 
-Send emails via Mailgun, Mandrill and SendGrid HTTP APIs.
+Sends emails via SendGrid, Mailgun, or Mandrill HTTP APIs.
+HttpMailer attempts to send an email once with each service \
+until an attempt is completed successfully.
 
 ## Installation
 
@@ -23,27 +25,24 @@ Or install it yourself as:
 Mailgun
 
 ```ruby
-mailgun_client = HttpMailer.mailgun({
-  host: "api.mailgun.net",
-  api_key: "XXXXXXXXX",
-  subdomain: "samples.mailgun.net"
-})
+settings = {
+  sendgrid: {
+    host: "sendgrid.com",
+    api_user: "username",
+    api_key: "XXXXXXXXX"
+  },
+  mailgun: {
+    host: "api.mailgun.net",
+    api_key: "XXXXXXXXX",
+    subdomain: "samples.mailgun.net"
+  },
+  mandrill: {
+    host: "mandrillapp.com",
+    api_key: "XXXXXXXXX"
+  }
+}
 
-from = "Excited User <me@samples.mailgun.org>"
-to = "baz@example.com"
-subject = "Hello"
-text = "Testing some Mailgun awesomness!"
-
-mailgun_client.send_message(from, to, subject, text)
-```
-
-Mandrill
-
-```ruby
-mandrill_client = HttpMailer.mandrill({
-  host: "mandrillapp.com",
-  api_key: "XXXXXXXXX"
-})
+http_mailer_client = HttpMailer::Client.new(settings)
 
 from = "papa@prose.com"
 from_name = "Ernest Hemingway"
@@ -54,26 +53,7 @@ text = "Every man's life ends the same way. \
 It is only the details of how he lived and \
 how he died that distinguish one man from another."
 
-mandrill_client.send_message(from, to, subject, text, to_name, from_name)
-```
-
-SendGrid
-
-```ruby
-sendgrid_client = HttpMailer.sendgrid({
-  host: "sendgrid.com",
-  api_user: "username",
-  api_key: "XXXXXXXXX"
-})
-
-from = "jcash@tennesseethree.com"
-from_name = "Johnny Cash"
-to = "elvis@graceland.com"
-to_name = "Elvis Presley"
-subject = "Hello"
-text = "Success is having to worry about every damn thing in the world, except money."
-
-sendgrid_client.send_message(from, to, subject, text, to_name, from_name)
+http_mailer_client.send_message(from, to, subject, text, to_name, from_name)
 ```
 
 ## Contributing
